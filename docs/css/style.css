@@ -1,0 +1,184 @@
+body {
+  height: 100vh;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.hidden {
+  display: none !important;
+}
+.text {
+  color: #fff;
+  mix-blend-mode: difference;
+}
+#quote,
+#todo-form > input,
+#todo-list,
+#wheather-info > span:last-child,
+#login-form > input,
+#login-form > button,
+#initial-btn {
+  font-size: 1.2rem;
+}
+#clock {
+  font-size: 7rem;
+}
+#clock {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+#quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  gap: 5px;
+}
+#quote > span:last-child {
+  font-size: 0.8rem;
+}
+#login-form {
+  display: flex;
+  gap: 10px;
+}
+#login-form > input {
+  width: 100%;
+}
+#login-form > button {
+  flex-basis: 150px;
+}
+
+#login-form > input,
+#login-form > button,
+#todo-form > input {
+  background-color: unset;
+  border: unset;
+  background-color: #ddda;
+  padding: 10px 20px;
+  transition: 0.15s;
+  outline: 2px solid #ddda;
+}
+#login-form > input:focus,
+#login-form > button:focus,
+#todo-form > input:focus {
+  outline: 2px solid #333;
+}
+#todo-form,
+#todo-form > input {
+  width: 100%;
+}
+#bg-img {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  -webkit-user-drag: none;
+  pointer-events: none;
+  filter: opacity(0.9);
+}
+#main-wrap {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+#clock {
+  justify-self: center;
+}
+#todo-list {
+  list-style-type: none;
+  height: 200px;
+  overflow-y: scroll;
+  background-color: #ddda;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+#todo-list::-webkit-scrollbar {
+  width: 5px;
+  background-color: #aaaa;
+}
+#todo-list::-webkit-scrollbar-thumb {
+  background-color: #666;
+  border-radius: 100px;
+}
+#todo-list > li {
+  display: flex;
+  justify-content: space-between;
+}
+#todo-list > li > span {
+  overflow: hidden;
+  white-space: wrap;
+  text-overflow: ellipsis;
+}
+#todo-list > li > button {
+  background-color: unset;
+  border: unset;
+  cursor: pointer;
+}
+#todoWrap,
+#login-form {
+  max-width: 350px;
+  width: 100%;
+}
+#todoWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#weather {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+}
+#wheather-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+/* #wheather-info > span {
+  color: #fff;
+} */
+#wheather-info > span:last-child {
+  font-weight: bold;
+}
+#initial-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: unset;
+  border: unset;
+  background-color: #ddda;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #quote,
+  #todo-form > input,
+  #todo-list,
+  #wheather-info > span:last-child,
+  #login-form > input,
+  #login-form > button {
+    font-size: 1rem;
+  }
+  #clock {
+    font-size: 5rem;
+  }
+}
