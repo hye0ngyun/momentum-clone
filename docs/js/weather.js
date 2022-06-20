@@ -11,10 +11,11 @@ function onGeoOk(position) {
       const elem = document.createElement("img");
       elem.setAttribute(
         "src",
-        `https://openweathermap.org/img/wn/${icon}@2x.png`
+        `http://openweathermap.org/img/wn/${icon}@2x.png`
       );
-      elem.setAttribute("title", `${data.weather[0].main}`);
-      elem.setAttribute("alt", "weather icon");
+      elem.setAttribute("title", `${data.weather[0].main}`
+      );
+      elem.setAttribute('alt', 'weather icon')
       const elem2 = document.createElement("span");
       elem2.classList.add("text");
       elem2.innerText = data.name;

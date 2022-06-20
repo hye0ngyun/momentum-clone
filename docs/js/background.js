@@ -1,10 +1,13 @@
 const images = [];
 const hours = new Date().getHours();
 for (let i = 1; i <= 10; i++) {
-  if (hours <= 12) {
+  if (hours < 6) {
+    // 새벽
+    images.push(`dawn (${i}).jpg`);
+  } else if (hours < 12) {
     // 오전
     images.push(`morning (${i}).jpg`);
-  } else if (hours <= 18) {
+  } else if (hours < 18) {
     // 오후
     images.push(`afternoon (${i}).jpg`);
   } else {

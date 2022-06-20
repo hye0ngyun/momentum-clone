@@ -9,12 +9,24 @@ const greeting = document.querySelector("#greeting");
 
 const svaedUserName = localStorage.getItem(USERNAME_KEY);
 
+const elResetBtn = document.createElement("button");
+elResetBtn.innerText = "↩";
+elResetBtn.setAttribute("id", "reset-btn");
+elResetBtn.setAttribute("title", "reset button");
+elResetBtn.classList.add("hidden");
+elResetBtn.addEventListener("click", () => {
+  localStorage.clear();
+  location.reload();
+});
+document.querySelector("#main-wrap").append(elResetBtn);
+
 function onLoginSubmit(e) {
   e.preventDefault();
   loginForm.classList.add(HIDDEN_CLASSNAME);
   localStorage.setItem(USERNAME_KEY, loginInput.value);
   paintGreetings();
   document.querySelector("#todoWrap").classList.remove(HIDDEN_CLASSNAME);
+  elResetBtn.classList.remove("hidden");
 }
 
 function paintGreetings() {
@@ -22,7 +34,10 @@ function paintGreetings() {
   greeting.classList.remove(HIDDEN_CLASSNAME);
   const hours = new Date().getHours();
   let greetingWord = "";
-  if (hours < 12) {
+  if (hours < 6) {
+    // 오전
+    greetingWord = "Good dawn";
+  } else if (hours < 12) {
     // 오전
     greetingWord = "Good morining";
   } else if (hours < 18) {
@@ -34,10 +49,12 @@ function paintGreetings() {
   }
   greeting.innerText = `${greetingWord} ${userName}`;
 }
+
 if (svaedUserName === null) {
   loginForm.classList.remove(HIDDEN_CLASSNAME);
   loginForm.addEventListener("submit", onLoginSubmit);
 } else {
   paintGreetings();
   document.querySelector("#todoWrap").classList.remove(HIDDEN_CLASSNAME);
+  elResetBtn.classList.remove("hidden");
 }
